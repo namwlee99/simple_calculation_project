@@ -26,5 +26,14 @@ namespace WindowsFormsApp1
 
             return s_array;
         }
+
+        // 배용진
+        // 문자열을 split 한 내용을 받아와서 사칙연산
+        public float Calculation(string[] s_calc)
+        {
+            float result = 0;
+
+            return result;
+        }
     }
 }
