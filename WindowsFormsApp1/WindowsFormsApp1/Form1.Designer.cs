@@ -44,27 +44,30 @@
             // 
             // textBox_print
             // 
-            this.textBox_print.Location = new System.Drawing.Point(13, 12);
+            this.textBox_print.Location = new System.Drawing.Point(15, 15);
+            this.textBox_print.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox_print.Multiline = true;
             this.textBox_print.Name = "textBox_print";
             this.textBox_print.ReadOnly = true;
-            this.textBox_print.Size = new System.Drawing.Size(518, 207);
+            this.textBox_print.Size = new System.Drawing.Size(591, 258);
             this.textBox_print.TabIndex = 0;
             // 
             // textBox_input
             // 
-            this.textBox_input.Location = new System.Drawing.Point(12, 225);
+            this.textBox_input.Location = new System.Drawing.Point(14, 281);
+            this.textBox_input.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox_input.Multiline = true;
             this.textBox_input.Name = "textBox_input";
-            this.textBox_input.Size = new System.Drawing.Size(319, 299);
+            this.textBox_input.Size = new System.Drawing.Size(364, 373);
             this.textBox_input.TabIndex = 1;
             this.textBox_input.TextChanged += new System.EventHandler(this.textBox_input_TextChanged);
             // 
             // button_del
             // 
-            this.button_del.Location = new System.Drawing.Point(437, 225);
+            this.button_del.Location = new System.Drawing.Point(499, 281);
+            this.button_del.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_del.Name = "button_del";
-            this.button_del.Size = new System.Drawing.Size(94, 55);
+            this.button_del.Size = new System.Drawing.Size(107, 69);
             this.button_del.TabIndex = 3;
             this.button_del.Text = "DEL";
             this.button_del.UseVisualStyleBackColor = true;
@@ -72,9 +75,10 @@
             // 
             // button_res
             // 
-            this.button_res.Location = new System.Drawing.Point(337, 225);
+            this.button_res.Location = new System.Drawing.Point(385, 281);
+            this.button_res.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_res.Name = "button_res";
-            this.button_res.Size = new System.Drawing.Size(94, 55);
+            this.button_res.Size = new System.Drawing.Size(107, 69);
             this.button_res.TabIndex = 5;
             this.button_res.Text = "C";
             this.button_res.UseVisualStyleBackColor = true;
@@ -82,81 +86,90 @@
             // 
             // button_min
             // 
-            this.button_min.Location = new System.Drawing.Point(337, 347);
+            this.button_min.Location = new System.Drawing.Point(385, 434);
+            this.button_min.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_min.Name = "button_min";
-            this.button_min.Size = new System.Drawing.Size(94, 55);
+            this.button_min.Size = new System.Drawing.Size(107, 69);
             this.button_min.TabIndex = 6;
             this.button_min.Text = "-";
             this.button_min.UseVisualStyleBackColor = true;
             // 
             // button_mul
             // 
-            this.button_mul.Location = new System.Drawing.Point(437, 347);
+            this.button_mul.Location = new System.Drawing.Point(499, 434);
+            this.button_mul.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_mul.Name = "button_mul";
-            this.button_mul.Size = new System.Drawing.Size(94, 55);
+            this.button_mul.Size = new System.Drawing.Size(107, 69);
             this.button_mul.TabIndex = 7;
             this.button_mul.Text = "*";
             this.button_mul.UseVisualStyleBackColor = true;
             // 
             // button_rem
             // 
-            this.button_rem.Location = new System.Drawing.Point(437, 408);
+            this.button_rem.Location = new System.Drawing.Point(499, 510);
+            this.button_rem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_rem.Name = "button_rem";
-            this.button_rem.Size = new System.Drawing.Size(94, 55);
+            this.button_rem.Size = new System.Drawing.Size(107, 69);
             this.button_rem.TabIndex = 8;
             this.button_rem.Text = "%";
             this.button_rem.UseVisualStyleBackColor = true;
             // 
             // button_div
             // 
-            this.button_div.Location = new System.Drawing.Point(337, 408);
+            this.button_div.Location = new System.Drawing.Point(385, 510);
+            this.button_div.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_div.Name = "button_div";
-            this.button_div.Size = new System.Drawing.Size(94, 55);
+            this.button_div.Size = new System.Drawing.Size(107, 69);
             this.button_div.TabIndex = 9;
             this.button_div.Text = "/";
             this.button_div.UseVisualStyleBackColor = true;
             // 
             // button_in_min
             // 
-            this.button_in_min.Location = new System.Drawing.Point(337, 286);
+            this.button_in_min.Location = new System.Drawing.Point(385, 358);
+            this.button_in_min.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_in_min.Name = "button_in_min";
-            this.button_in_min.Size = new System.Drawing.Size(94, 55);
+            this.button_in_min.Size = new System.Drawing.Size(107, 69);
             this.button_in_min.TabIndex = 10;
             this.button_in_min.Text = "Add - / Del -";
             this.button_in_min.UseVisualStyleBackColor = true;
             // 
             // button_plu
             // 
-            this.button_plu.Location = new System.Drawing.Point(437, 286);
+            this.button_plu.Location = new System.Drawing.Point(499, 358);
+            this.button_plu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_plu.Name = "button_plu";
-            this.button_plu.Size = new System.Drawing.Size(94, 55);
+            this.button_plu.Size = new System.Drawing.Size(107, 69);
             this.button_plu.TabIndex = 11;
             this.button_plu.Text = "+";
             this.button_plu.UseVisualStyleBackColor = true;
             // 
             // button_ica
             // 
-            this.button_ica.Location = new System.Drawing.Point(436, 469);
+            this.button_ica.Location = new System.Drawing.Point(498, 586);
+            this.button_ica.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_ica.Name = "button_ica";
-            this.button_ica.Size = new System.Drawing.Size(94, 55);
+            this.button_ica.Size = new System.Drawing.Size(107, 69);
             this.button_ica.TabIndex = 12;
             this.button_ica.Text = "=";
             this.button_ica.UseVisualStyleBackColor = true;
+            this.button_ica.Click += new System.EventHandler(this.button_ica_Click);
             // 
             // button_log
             // 
-            this.button_log.Location = new System.Drawing.Point(336, 469);
+            this.button_log.Location = new System.Drawing.Point(384, 586);
+            this.button_log.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_log.Name = "button_log";
-            this.button_log.Size = new System.Drawing.Size(94, 55);
+            this.button_log.Size = new System.Drawing.Size(107, 69);
             this.button_log.TabIndex = 13;
             this.button_log.Text = "Log";
             this.button_log.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 533);
+            this.ClientSize = new System.Drawing.Size(615, 666);
             this.Controls.Add(this.button_log);
             this.Controls.Add(this.button_ica);
             this.Controls.Add(this.button_plu);
@@ -169,6 +182,7 @@
             this.Controls.Add(this.button_del);
             this.Controls.Add(this.textBox_input);
             this.Controls.Add(this.textBox_print);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
