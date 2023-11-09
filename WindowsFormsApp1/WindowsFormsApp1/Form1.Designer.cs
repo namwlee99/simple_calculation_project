@@ -88,6 +88,7 @@
             this.button_min.TabIndex = 6;
             this.button_min.Text = "-";
             this.button_min.UseVisualStyleBackColor = true;
+            this.button_min.Click += new System.EventHandler(this.button_min_Click);
             // 
             // button_mul
             // 
@@ -97,6 +98,7 @@
             this.button_mul.TabIndex = 7;
             this.button_mul.Text = "*";
             this.button_mul.UseVisualStyleBackColor = true;
+            this.button_mul.Click += new System.EventHandler(this.button_mul_Click);
             // 
             // button_rem
             // 
@@ -106,6 +108,7 @@
             this.button_rem.TabIndex = 8;
             this.button_rem.Text = "%";
             this.button_rem.UseVisualStyleBackColor = true;
+            this.button_rem.Click += new System.EventHandler(this.button_rem_Click);
             // 
             // button_div
             // 
@@ -115,6 +118,7 @@
             this.button_div.TabIndex = 9;
             this.button_div.Text = "/";
             this.button_div.UseVisualStyleBackColor = true;
+            this.button_div.Click += new System.EventHandler(this.button_div_Click);
             // 
             // button_in_min
             // 
@@ -133,6 +137,7 @@
             this.button_plu.TabIndex = 11;
             this.button_plu.Text = "+";
             this.button_plu.UseVisualStyleBackColor = true;
+            this.button_plu.Click += new System.EventHandler(this.button_plu_Click);
             // 
             // button_ica
             // 

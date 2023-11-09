@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Windows.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,8 +18,8 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
-            // 배용진 작성
-            Calculation("10 + (20 - 10) * 30 / 2");       //테스트용 생성자 추후 삭제
+            // 배용진
+            Calculation("10 + (20 - 10) * 30 / 2");     //테스트용 생성자 추후 삭제
             Split_String("받아올 문자열 혹은 함수");      //테스트용 생성자 추후 삭제
             // 배용진 여기까지
         }
@@ -68,47 +69,63 @@ namespace WindowsFormsApp1
             // 김정관 끝
         }
 
-        private void textBox_input_TextChanged(object sender, EventArgs e)
+        // 이남웅
+        // textBox의 입력 및 필터링 함수
+        private string allowedChars = "0123456789.+-*/%()";
+
+        private void textBox_input_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!textBox_input.Text.Contains(","))
+            char key = e.KeyChar;
+
+            // 입력된 문자가 허용된 문자 목록에 속하지 않으면 입력을 취소
+            if (allowedChars.IndexOf(key) == -1)
             {
-                // 숫자로 변환하여 다시 형식화
-                if (double.TryParse(textBox_input.Text, out double number))
-                {
-                    textBox_input.Text.ToString();
-                }
+                e.Handled = true;
             }
-            textBox_print.Text = textBox_input.Text;
         }
 
-        // 초기화 함수
+        // 이남웅
+        // textBox의 입력을 실시간으로 처리하는 함수
+        private void textBox_input_TextChanged(object sender, EventArgs e)
+        {
+            // TextBox 내용을 전부 검사하여 잘못된 문자를 제거
+            string inputText = textBox_input.Text;
+            string filteredText = new string(inputText.Where(c => allowedChars.Contains(c)).ToArray());
+
+            textBox_print.Text = filteredText;
+            textBox_input.Text = filteredText;
+
+            // 커서 위치를 TextBox 끝으로 이동
+            textBox_input.SelectionStart = textBox_input.Text.Length;
+        }
+
+        // 이남웅
+        // C 버튼 함수
         private void button_res_Click(object sender, EventArgs e)
         {
+            // 입력된 문자 초기화
             textBox_input.Text = "";
         }
 
-        // 한글자씩 삭제 함수
+        // 이남웅
+        // DEL 버튼 함수
         private void button_del_Click(object sender, EventArgs e)
         {
+            // 만약 입력된 문자가 존재할 경우
             if (!string.IsNullOrEmpty(textBox_input.Text))
             {
+                // 마지막 문자를 제거하여 나머지 부분을 대입
                 textBox_input.Text = textBox_input.Text.Substring(0, textBox_input.Text.Length - 1);
             }
         }
-        public static string AddCommasToNumber(double number)
-        {
-            return number.ToString("N0");
-        }
 
         // 배용진
-        // = 이퀄 함수
+        // = 버튼 함수
         private void button_ica_Click(object sender, EventArgs e)
         {
             // 입력 받았을 때 계산 텍스트 변경 및 텍스트박스 리셋
             textBox_print.Text = Calculation(textBox_input.Text);
         }
-
-        // 배용진 여기까지
 
         //김정관 시작
         private void button_log_Click(object sender, EventArgs e) // 로그버튼 클릭 이벤트의 핸들러메소드
@@ -135,5 +152,181 @@ namespace WindowsFormsApp1
             //textBox_print.ScrollToCaret(); // 컨트롤을 스크롤해 텍스트의 시작 부분에 위치하도록 함 -> 가장 최근계산이력 보이게 하기
         }
         // 김정관 끝
+            //textBox_input.Text = "";
+        }
+
+        // 배용진
+        // 더하기 버튼, 누르면 계산기에 더하기 추가됨
+        private void button_plu_Click(object sender, EventArgs e)
+        {
+            string text = textBox_input.Text;
+            char lastcharacter = default;
+            if (textBox_input.Text == "")
+            {
+                lastcharacter = default;
+            }
+            else
+            {
+                lastcharacter = text[text.Length - 1];
+            }
+
+            // 기호 있으면 교체
+            if (lastcharacter.ToString() == "+" || lastcharacter.ToString() == "-" ||
+                lastcharacter.ToString() == "*" || lastcharacter.ToString() == "/" ||
+                lastcharacter.ToString() == "%")
+            {
+                textBox_input.Text = text.Remove(text.Length - 1);
+                textBox_input.Text += "+";
+            }
+            else if (lastcharacter == default || lastcharacter.ToString() == "-")
+            {
+                // 아무것도 입력되지 않는 상태일 때 작동
+                textBox_input.Text = "";
+            }
+            else
+            {
+                textBox_input.Text += "+";
+            }
+        }
+
+        // 배용진
+        // 빼기 버튼
+        private void button_min_Click(object sender, EventArgs e)
+        {
+            string text = textBox_input.Text;
+            char lastcharacter = default;
+            if (textBox_input.Text == "")
+            {
+                lastcharacter = default;
+            }
+            else
+            {
+                lastcharacter = text[text.Length - 1];
+            }
+
+            // 기호 있으면 교체
+            if (lastcharacter.ToString() == "+" || lastcharacter.ToString() == "-" ||
+                lastcharacter.ToString() == "*" || lastcharacter.ToString() == "/" ||
+                lastcharacter.ToString() == "%")
+            {
+                textBox_input.Text = text.Remove(text.Length - 1);
+                textBox_input.Text += "-";
+            }
+            else if (lastcharacter == default || lastcharacter.ToString() == "-")
+            {
+                // 아무것도 입력되지 않는 상태일 때 작동
+                textBox_input.Text += "-";
+            }
+            else
+            {
+                textBox_input.Text += "-";
+            }
+        }
+        // 배용진
+        // 곱하기 버튼
+        private void button_mul_Click(object sender, EventArgs e)
+        {
+            
+            string text = textBox_input.Text;
+            char lastcharacter = default;
+            if (textBox_input.Text == "")
+            {
+                lastcharacter = default;
+            }
+            else
+            {
+                lastcharacter = text[text.Length - 1];
+            }
+
+            // 기호 있으면 교체
+            if (lastcharacter.ToString() == "+" || lastcharacter.ToString() == "-" ||
+                lastcharacter.ToString() == "*" || lastcharacter.ToString() == "/" ||
+                lastcharacter.ToString() == "%" )
+            {
+                textBox_input.Text = text.Remove(text.Length - 1);
+                textBox_input.Text += "*";
+            }
+            else if (lastcharacter == default || lastcharacter.ToString() == "-")
+            {
+                // 아무것도 입력되지 않는 상태일 때 작동
+                textBox_input.Text = "";
+            }
+            else
+            {
+                textBox_input.Text += "*";
+            }
+        }
+        // 배용진
+        // 나누기 버튼 ( 몫 )
+        private void button_div_Click(object sender, EventArgs e)
+        {
+            string text = textBox_input.Text;
+            char lastcharacter = default;
+            if (textBox_input.Text == "")
+            {
+                lastcharacter = default;
+            }
+            else
+            {
+                lastcharacter = text[text.Length - 1];
+            }
+
+            // 기호 있으면 교체
+            if (lastcharacter.ToString() == "+" || lastcharacter.ToString() == "-" ||
+                lastcharacter.ToString() == "*" || lastcharacter.ToString() == "/" ||
+                lastcharacter.ToString() == "%")
+            {
+                textBox_input.Text = text.Remove(text.Length - 1);
+                textBox_input.Text += "/";
+            }
+            else if (lastcharacter == default || lastcharacter.ToString() == "-")
+            {
+                // 아무것도 입력되지 않는 상태일 때 작동
+                textBox_input.Text += "";
+            }
+            else
+            {
+                textBox_input.Text += "/";
+            }
+        }
+        // 배용진
+        // 나누기 버튼 ( 나머지 )
+        private void button_rem_Click(object sender, EventArgs e)
+        {
+            string text = textBox_input.Text;
+            char lastcharacter = default;
+            if (textBox_input.Text == "")
+            {
+                lastcharacter = default;
+            }
+            else
+            {
+                lastcharacter = text[text.Length - 1];
+            }
+
+            // 기호 있으면 교체
+            if (lastcharacter.ToString() == "+" || lastcharacter.ToString() == "-" ||
+                lastcharacter.ToString() == "*" || lastcharacter.ToString() == "/" ||
+                lastcharacter.ToString() == "%" )
+            {
+                textBox_input.Text = text.Remove(text.Length - 1);
+                textBox_input.Text += "%";
+            }
+            else if (lastcharacter == default || lastcharacter.ToString() == "-")
+            {
+                // 아무것도 입력되지 않는 상태일 때 작동
+                textBox_input.Text = "";
+            }
+            else
+            {
+                textBox_input.Text += "%";
+            }
+        }
+
+        // 배용진 여기까지
+
+        // 배용진
+        // 
+        }
     }
 }
