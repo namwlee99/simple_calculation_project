@@ -16,12 +16,9 @@ namespace WindowsFormsApp1
     {
         private List<string> calculationHistory = new List<string>();
         public Form1()
+
         {
             InitializeComponent();
-            // 배용진
-            Calculation("10 + (20 - 10) * 30 / 2");     //테스트용 생성자 추후 삭제
-            Split_String("받아올 문자열 혹은 함수");      //테스트용 생성자 추후 삭제
-            // 배용진 여기까지
         }
 
         // 배용진
@@ -50,23 +47,20 @@ namespace WindowsFormsApp1
             // 배용진 여기까지
 
             // 김정관 시작
-            // 계산식과 그 결과를 이력에 추가합니다.
+            //현재의 계산식과 결과를 계산 이력 리스트에 추가
+            //계산 이력의 크기를 최대 10개로 제한
+            //현재 계산 결과를 반환
             string currentCalculation = input;
             string currentResult = result.ToString();
             calculationHistory.Add(currentCalculation + " = " + currentResult);
-            // 현재 계산식(input)과 결과(result)를 문자열 형태로 조합하여 계산 이력 (calculationHistory) 리스트에 추가
-
-            // 계산 이력의 크기를 제한합니다. 여기서는 최근 10개 항목까지 유지
+            
             const int maxHistorySize = 10;
             if (calculationHistory.Count > maxHistorySize)
             {
-                calculationHistory.RemoveAt(0);//'0'번째 인덱스 삭제(첫번째 요소)
+                calculationHistory.RemoveAt(0);
             }
-            // 계산 이력 리스트의 크기가 최대 크기(maxHistorySize)를 초과하면, 가장 오래된 항목을 제거하여 리스트 크기를 10개로 유지
-
-            // 현재 결과 반환
+            
             return currentResult;
-            // 김정관 끝
         }
 
         // 이남웅
@@ -123,37 +117,27 @@ namespace WindowsFormsApp1
         // = 버튼 함수
         private void button_ica_Click(object sender, EventArgs e)
         {
-            // 입력 받았을 때 계산 텍스트 변경 및 텍스트박스 리셋
             textBox_print.Text = Calculation(textBox_input.Text);
         }
 
         //김정관 시작
-        private void button_log_Click(object sender, EventArgs e) // 로그버튼 클릭 이벤트의 핸들러메소드
+        //최근 계산 이력 중 최대 10개의 항목을 가져와서 이를 텍스트 박스(textBox_print)에 표시
+        private void button_log_Click(object sender, EventArgs e)
         {
-            // 최근 10개의 계산 이력을 가져오는데, 계산 이력이 10개 미만인 경우 전체 이력을 가져옵니다.
-            int count = Math.Min(calculationHistory.Count, 10); // 리스트의 항목 수와 10중에서 작은값 표시
+            int count = Math.Min(calculationHistory.Count, 10);
 
-            // StringBuilder를 사용하여 이력 텍스트 작성
             StringBuilder historyText = new StringBuilder();
             for (int i = calculationHistory.Count - count; i < calculationHistory.Count; i++)
-            // count개 항목에 대해서 반복, 루푸는 count개 항목 중 가장 오래도니 항목의 인덱스에서 시작해서 리스트 마지막까지 반복
             {
                 historyText.AppendLine(calculationHistory[i]);
-                // 각 계산 이력항목을 historyText에 추가 및 새 줄로 구분
             }
 
-            // 계산 이력을 textBox_print에 표시
             string fullText = "계산 이력 (최근 " + count + "개):\r\n\r\n" + historyText.ToString();
-            // textBox_print 컨트롤의 텍스트를 fullText로 설정해 계산이력 서식화 및 표시
             textBox_print.Text = fullText;
 
-            // 필요한 경우, 스크롤을 맨 위로 이동
-            //textBox_print.SelectionStart = 100; // 컨트롤 텍스트 시작위치를 0으로 설정
-            //textBox_print.ScrollToCaret(); // 컨트롤을 스크롤해 텍스트의 시작 부분에 위치하도록 함 -> 가장 최근계산이력 보이게 하기
         }
         // 김정관 끝
-            //textBox_input.Text = "";
-        }
+        
 
         // 배용진
         // 더하기 버튼, 누르면 계산기에 더하기 추가됨
@@ -322,11 +306,18 @@ namespace WindowsFormsApp1
                 textBox_input.Text += "%";
             }
         }
-
         // 배용진 여기까지
 
-        // 배용진
-        // 
+
+        //김정관 Log 초기화 구축
+        private void log_reset_Click(object sender, EventArgs e)
+        {
+            calculationHistory.Clear();
+
+            textBox_print.Text = "";
         }
+        //김정관 끝
+ 
     }
 }
+

@@ -36,7 +36,7 @@
             this.button_mul = new System.Windows.Forms.Button();
             this.button_rem = new System.Windows.Forms.Button();
             this.button_div = new System.Windows.Forms.Button();
-            this.button_in_min = new System.Windows.Forms.Button();
+            this.log_reset = new System.Windows.Forms.Button();
             this.button_plu = new System.Windows.Forms.Button();
             this.button_ica = new System.Windows.Forms.Button();
             this.button_log = new System.Windows.Forms.Button();
@@ -120,14 +120,15 @@
             this.button_div.UseVisualStyleBackColor = true;
             this.button_div.Click += new System.EventHandler(this.button_div_Click);
             // 
-            // button_in_min
+            // log_reset
             // 
-            this.button_in_min.Location = new System.Drawing.Point(337, 286);
-            this.button_in_min.Name = "button_in_min";
-            this.button_in_min.Size = new System.Drawing.Size(94, 55);
-            this.button_in_min.TabIndex = 10;
-            this.button_in_min.Text = "Add - / Del -";
-            this.button_in_min.UseVisualStyleBackColor = true;
+            this.log_reset.Location = new System.Drawing.Point(337, 286);
+            this.log_reset.Name = "log_reset";
+            this.log_reset.Size = new System.Drawing.Size(94, 55);
+            this.log_reset.TabIndex = 10;
+            this.log_reset.Text = "Log_reset";
+            this.log_reset.UseVisualStyleBackColor = true;
+            this.log_reset.Click += new System.EventHandler(this.log_reset_Click);
             // 
             // button_plu
             // 
@@ -167,7 +168,7 @@
             this.Controls.Add(this.button_log);
             this.Controls.Add(this.button_ica);
             this.Controls.Add(this.button_plu);
-            this.Controls.Add(this.button_in_min);
+            this.Controls.Add(this.log_reset);
             this.Controls.Add(this.button_div);
             this.Controls.Add(this.button_rem);
             this.Controls.Add(this.button_mul);
@@ -192,7 +193,7 @@
         private System.Windows.Forms.Button button_mul;
         private System.Windows.Forms.Button button_rem;
         private System.Windows.Forms.Button button_div;
-        private System.Windows.Forms.Button button_in_min;
+        private System.Windows.Forms.Button log_reset;
         private System.Windows.Forms.Button button_plu;
         private System.Windows.Forms.Button button_ica;
         private System.Windows.Forms.Button button_log;
