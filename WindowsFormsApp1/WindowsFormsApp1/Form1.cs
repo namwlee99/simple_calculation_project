@@ -19,6 +19,7 @@ namespace WindowsFormsApp1
 
         {
             InitializeComponent();
+            //kwan
         }
 
         // 배용진
